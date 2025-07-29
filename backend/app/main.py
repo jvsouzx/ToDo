@@ -4,6 +4,7 @@ from sqlmodel import Session, select
 from app.models import Task
 from app.database import create_db_and_tables, get_session
 import logging
+from fastapi.middleware.cors import CORSMiddleware
 
 logger = logging.getLogger("uvicorn")
 
@@ -16,6 +17,13 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def root():
