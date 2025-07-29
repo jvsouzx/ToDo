@@ -27,6 +27,12 @@ def list_tasks(session: Session = Depends(get_session)) -> list[Task]:
     tasks = session.exec(select(Task)).all()
     return tasks
 
+@app.get("/tasks/{task_id}")
+def get_task_by_id(task_id: int, session: Session = Depends(get_session)) -> Task:
+    task = session.get(Task, task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+    return task
 
 @app.post("/tasks")
 def create_task(
