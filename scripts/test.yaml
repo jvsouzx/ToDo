@@ -1,0 +1,28 @@
+url: http://localhost:8081/
+---
+- launchApp
+
+# criar uma tarefa
+- tapOn: "Nova tarefa"
+- tapOn: "Título"
+- inputText: "Testar"
+- tapOn: "Descrição"
+- inputText: "Testando a criação de uma tarefa"
+- tapOn: "Em Execução"
+- tapOn: "Selecionar Data de Vencimento"
+- tapOn: "31"
+- tapOn: "save"
+- tapOn: "Salvar"
+
+# editar uma tarefa
+- tapOn: 
+    id: "edit-task-button"
+    index: 0
+- tapOn: "Concluído"
+- tapOn: "Salvar"
+
+# excluir uma tarefa
+- tapOn: 
+    id: "delete-task-button"
+    index: 0
+- tapOn: "OK"

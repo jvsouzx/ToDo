@@ -149,10 +149,12 @@ export default function TaskScreen() {
                                     <IconButton
                                         icon="pencil-outline"
                                         onPress={() => openModal(task)}
+                                        testID="edit-task-button"
                                     />
                                     <IconButton
                                         icon="trash-can-outline"
                                         onPress={() => confirmDelete(task.id!)}
+                                        testID="delete-task-button"
                                     />
                                 </View>
                             </View>
